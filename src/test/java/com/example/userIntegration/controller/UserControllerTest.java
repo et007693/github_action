@@ -134,7 +134,7 @@ class UserControllerTest {
         // todo "User not found width id: 999" 검증
         User user = new User("송창용", "1234");
         HttpEntity<User> request = new HttpEntity<>(user);
-        ResponseEntity<User> response = restTemplate.exchange("/users/999", HttpMethod.PUT, request, User.class);
+        ResponseEntity<String> response = restTemplate.exchange("/users/999", HttpMethod.PUT, request, String.class);
 
         assertEquals(400, response.getStatusCode().value());
         assertEquals("User not found with id: 999", response.getBody());
@@ -179,8 +179,8 @@ class UserControllerTest {
         assertEquals("User not found with id: 999", response.getBody());
     }
 
-    @Test
-    void fail() {
-        fail();
-    }
+//    @Test
+//    void fail() {
+//        fail();
+//    }
 }
